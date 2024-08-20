@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--name", "raft-debug-sintel",
+                "--stage", "sintel",
+                "--validation", "sintel", "kitti",
+                "--restore_ckpt", "models/raft-things.pth",
+                "--gpus", "0",
+                "--num_steps", "500",
+                "--batch_size", "6",
+                "--lr", "0.000125",
+                //"--image_size", "432", "960",
+                "--image_size", "368", "768",
+                "--wdecay", "0.00001",
+                "--gamma", "0.85",
+                "--mixed_precision",
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0"
+            }
+        }    ]
+}
