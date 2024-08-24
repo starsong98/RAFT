@@ -42,8 +42,8 @@ except:
 # exclude extremly large displacements
 MAX_FLOW = 400
 SUM_FREQ = 100
-#VAL_FREQ = 5000
-VAL_FREQ = 250
+VAL_FREQ = 5000
+#VAL_FREQ = 250
 
 
 def sequence_loss(flow_preds, flow_gt, valid, gamma=0.8, max_flow=MAX_FLOW):
@@ -156,8 +156,8 @@ def train(args):
     scaler = GradScaler(enabled=args.mixed_precision)
     logger = Logger(model, scheduler)
 
-    #VAL_FREQ = 5000
-    VAL_FREQ = 250
+    VAL_FREQ = 5000
+    #VAL_FREQ = 250
     add_noise = True
 
     should_keep_training = True
@@ -243,6 +243,8 @@ if __name__ == '__main__':
     parser.add_argument('--dropout', type=float, default=0.0)
     parser.add_argument('--gamma', type=float, default=0.8, help='exponential weighting')
     parser.add_argument('--add_noise', action='store_true')
+
+    parser.add_argument('--alternate_corr', action='store_true', help='use efficent correlation implementation')
     args = parser.parse_args()
 
     torch.manual_seed(1234)

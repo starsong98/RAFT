@@ -9,3 +9,4 @@ correlation.egg-info
 runs
 checkpoints
 .zip
+alt_cuda_corr_broken
